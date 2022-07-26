@@ -3,26 +3,19 @@ local OutputSide = "Left" -- The side of the Computer the door is on
 local PassCode = "FissileFuel" -- The password
 
 -- Do not modify anything below this line
-
-local Toggled = false
-
 while true do
     while true do
         term.clear()
+        term.setCursorPos(0,0)
         write("Enter Passcode\n")
         write("> ")
         local Input = read("*")
 
-        if Input = PassCode then break end
+        if Input == PassCode then break end
         print("Wrong passcode.")
-        os.sleep(5)
+        os.sleep(2)
     end
-    if Toggle then
-        Toggled = not Toggled
-    end
-    rs.setOutput(OutputSide, Toggled)
-    if not Toggle then
-        os.sleep(Timer)
-        rs.setOutput(OutputSide, not Toggled)
-    end
+    rs.setOutput(OutputSide, true)
+    os.sleep(Timer)
+    rs.setOutput(OutputSide, false)
 end
