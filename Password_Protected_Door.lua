@@ -14,14 +14,14 @@ while true do
     while true do
         term.clear()
         term.setCursorPos(1,1)
-        write("Enter passcode\n")
+        Type("Enter passcode\n")
         write("> ")
         local Input = read("*")
 
         if Input == PassCode then
             Type("Correct passcode.")
             break end
-        print("Wrong passcode.")
+        Type("Wrong passcode.")
         os.sleep(0.5)
     end
     rs.setOutput(OutputSide, true)
